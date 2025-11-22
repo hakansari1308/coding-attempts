@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Soru 2</title>
+  <style>
+    body {
+      font-family:sans-serif;
+      background:#071027;
+      color:#e6eef6;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      height:100vh;
+      padding:20px;
+    }
+    .container {
+      background:#0b1220;
+      padding:24px;
+      border-radius:12px;
+      width:90%;
+      max-width:600px;
+      text-align:center;
+      position:relative;
+    }
+    .timer {
+      font-weight:700;
+      margin-bottom:10px;
+    }
+    .question {
+      font-size:20px;
+      margin-bottom:20px;
+    }
+    .choices button {
+      display:block;
+      width:100%;
+      margin:8px 0;
+      padding:10px;
+      border:none;
+      border-radius:8px;
+      background:#06b6d4;
+      color:#042027;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    .choices button:hover {
+      background:#0ca5e9;
+    }
+    .feedback {
+      margin-top:15px;
+      font-weight:700;
+      min-height:24px;
+    }
+    .messagebox {
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      background:#ffffff10;
+      border:1px solid rgba(255,255,255,0.15);
+      border-radius:10px;
+      padding:20px;
+      width:80%;
+      max-width:320px;
+      text-align:center;
+      color:#e6eef6;
+      display:none;
+      backdrop-filter: blur(6px);
+      animation: pop 0.3s ease;
+    }
+    @keyframes pop {
+      from { transform:translate(-50%,-40%) scale(0.8); opacity:0; }
+      to { transform:translate(-50%,-50%) scale(1); opacity:1; }
+    }
+    .correct { color:#16a34a; }
+    .wrong { color:#ef4444; }
+    a {
+      display:inline-block;
+      margin-top:20px;
+      color:#06b6d4;
+      text-decoration:none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="timer" id="timer">1:30</div>
+    <div class="question" id="questionText">"Mona Lisa tablosunu kim yapmıştır?"</div>
+
+    <div class="choices">
+      <button onclick="checkAnswer(0)">Vincent van Gogh</button>
+      <button onclick="checkAnswer(1)">Pablo Picasso</button>
+      <button onclick="checkAnswer(2)">Leonardo da Vinci</button>
+      <button onclick="checkAnswer(3)">Michelangelo</button>
+    </div>
+
+    <div class="feedback" id="feedback"></div>
+    <a href="index.html">Ana Sayfaya Dön</a>
+
+    <div class="messagebox" id="messageBox"></div>
+  </div>
+
+  <script>
+    let remaining = 90; // 1.5 dakika
+    const timerEl = document.getElementById('timer');
+    const feedbackEl = document.getElementById('feedback');
+    const msgBox = document.getElementById('messageBox');
+    const correctAnswer = 2; // Leonardo da Vinci
+
+    function updateTimer() {
+      const m = Math.floor(remaining / 60);
+      const s = remaining % 60;
+      timerEl.textContent = m + ':' + (s < 10 ? '0' : '') + s;
+      remaining--;
+      if(remaining < 0) {
+        clearInterval(timerInterval);
+        showMessage('Süre doldu! ⏰', 'Cezanız: -1000 puan', false);
+        disableButtons();
+      }
+    }
+
+    function checkAnswer(idx) {
+      if(remaining < 0) return;
+      clearInterval(timerInterval);
+      if(idx === correctAnswer){
+        feedbackEl.textContent = 'Doğru!';
+        feedbackEl.className = 'feedback correct';
+        showMessage('Tebrikler! 🎉', 'Ödülünüz: +2000', true);
+      } else {
+        feedbackEl.textContent = 'Yanlış! Doğru cevap: Leonardo da Vinci';
+        feedbackEl.className = 'feedback wrong';
+        showMessage('Üzgünüm 😔', 'Cezanız: -1500 puan', false);
+      }
+      disableButtons();
+    }
+
+    function showMessage(title, detail, success) {
+      msgBox.innerHTML = `
+        <h3 class=\"${success ? 'correct' : 'wrong'}\">${title}</h3>
+        <p>${detail}</p>
+      `;
+      msgBox.style.display = 'block';
+      setTimeout(() => { msgBox.style.display = 'none'; }, 3000);
+    }
+
+    function disableButtons() {
+      const btns = document.querySelectorAll('.choices button');
+      btns.forEach(b => b.disabled = true);
+    }
+
+    const timerInterval = setInterval(updateTimer, 1000);
+  </script>
+</body>
+</html>
