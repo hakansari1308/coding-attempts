@@ -1,15 +1,22 @@
 {
   "version": 2,
-  "dgSpecHash": "lGGxULwWkwXiuwQEUVGXYc4gHD7xO2wilW5Wyzp1WAzeqp80R/5oLyLEc06oNUIjUJ0rrCDZCzX/wQHesM/ejg==",
+  "dgSpecHash": "MWTcI2H6ZPw=",
   "success": false,
-  "projectFilePath": "C:\\Users\\Win10\\source\\repos\\aslanbeyjetWebUI\\aslanbetjetWebUI\\aslanbetjetWebUI.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\Yazılım\\Github\\coding-attempts\\aslanbeyjetWebUI\\aslanbetjetWebUI\\aslanbetjetWebUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\cokeg\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.36\\microsoft.windowsdesktop.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\cokeg\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.36\\microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\cokeg\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.36\\microsoft.aspnetcore.app.ref.6.0.36.nupkg.sha512",
+    "C:\\Users\\cokeg\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.36\\microsoft.netcore.app.host.win-x64.6.0.36.nupkg.sha512"
+  ],
   "logs": [
     {
       "code": "NU1105",
       "level": "Error",
-      "message": "Unable to find project information for 'C:\\Users\\Win10\\source\\repos\\aslanbeyjetWebUI\\aslanbeyjetBusiness\\aslanbeyjetBusiness.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
-      "libraryId": "C:\\Users\\Win10\\source\\repos\\aslanbeyjetWebUI\\aslanbeyjetBusiness\\aslanbeyjetBusiness.csproj",
+      "message": "'D:\\Yazılım\\Github\\coding-attempts\\aslanbeyjetWebUI\\aslanbeyjetBusiness\\aslanbeyjetBusiness.csproj' için proje bilgileri bulunamıyor. Visual Studio kullanıyorsanız, bunun nedeni projenin yüklenmemiş veya geçerli çözümün bir parçası olmaması olabilir. Komut satırından bir geri yükleme işlemi çalıştırın. Aksi takdirde proje dosyası geçersiz olabilir veya geri yükleme için gereken hedefler eksik olabilir.",
+      "projectPath": "D:\\Yazılım\\Github\\coding-attempts\\aslanbeyjetWebUI\\aslanbetjetWebUI\\aslanbetjetWebUI.csproj",
+      "filePath": "D:\\Yazılım\\Github\\coding-attempts\\aslanbeyjetWebUI\\aslanbetjetWebUI\\aslanbetjetWebUI.csproj",
+      "libraryId": "D:\\Yazılım\\Github\\coding-attempts\\aslanbeyjetWebUI\\aslanbeyjetBusiness\\aslanbeyjetBusiness.csproj",
       "targetGraphs": [
         "net6.0"
       ]
